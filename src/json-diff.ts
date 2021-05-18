@@ -1,3 +1,4 @@
+import { AnyMap, StringArray } from './interface'
 import { deepClone } from './object'
 import { objectPath } from './object-path'
 import {

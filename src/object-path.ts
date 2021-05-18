@@ -1,3 +1,4 @@
+import { AnyMap } from './interface'
 import {
   isEmpty,
   isInt,

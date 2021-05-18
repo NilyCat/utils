@@ -1,3 +1,4 @@
+import { AnyArray, AnyMap, StringArray } from './interface'
 import { deepExtend } from './object'
 import { isArray, isEmpty, isObject, isString } from './validate'
 

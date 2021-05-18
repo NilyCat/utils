@@ -1,3 +1,4 @@
+import { AnyArray, AnyMap } from './interface'
 import { objectPath } from './object-path'
 import { hasOwnProp, isArray, isNil, isObject } from './validate'
 

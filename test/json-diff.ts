@@ -1,3 +1,4 @@
+import { AnyArray, AnyMap } from '../src/interface'
 import { compare, Operation, patch } from '../src/json-diff'
 
 const objectA: AnyMap = {

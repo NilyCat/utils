@@ -1,3 +1,4 @@
+import { AnyMap } from '../src/interface'
 import { copy, deepClone, deepExtend, extend, pick } from '../src/object'
 import { hasOwnProp } from '../src/validate'
 
