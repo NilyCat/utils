@@ -1,4 +1,5 @@
 import {
+  isBlob,
   isBool,
   isDate,
   isEmpty,
@@ -18,7 +19,7 @@ import {
   isValidArray,
   isWeakMap,
   isWeakSet
-} from '../src/validate'
+} from "../src/validate";
 
 describe('validate', () => {
   test("' ' is empty", () => {
@@ -232,5 +233,13 @@ describe('validate', () => {
         /**/
       })
     ).toBe(false)
+  })
+
+  test('new Blob is blob', () => {
+    expect(isBlob(new Blob([]))).toBe(true)
+  })
+
+  test('new File is not blob', () => {
+    expect(isBlob(new File([], 'text.txt'))).toBe(false)
   })
 })

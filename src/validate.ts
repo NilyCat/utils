@@ -171,3 +171,7 @@ export function isFormData(value: any): boolean {
 export function isPromise<T = any>(value: any): value is Promise<T> {
   return type(value) === 'promise'
 }
+
+export function isBlob<T = any>(value: any): value is Promise<T> {
+  return type(value) === 'blob'
+}
