@@ -1,7 +1,7 @@
 {
   "name": "@nily/utils",
   "description": "A nodejs basic development library",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/NilyCat/utils",
   "author": "mufeng.me@gmail.com",
   "repository": {
@@ -15,8 +15,8 @@
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc -p tsconfig-build.json",
     "build:cjs": "tsc -p tsconfig-build-cjs.json",
-    "test": "jest",
-    "cov": "jest --coverage",
+    "test": "jest --env=jsdom",
+    "cov": "jest --env=jsdom --coverage",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write ./src",
     "lint": "eslint . --ext .ts --quiet",
