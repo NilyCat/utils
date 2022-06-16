@@ -19,7 +19,7 @@ import {
   isValidArray,
   isWeakMap,
   isWeakSet
-} from "../src/validate";
+} from '../src/validate'
 
 describe('validate', () => {
   test("' ' is empty", () => {

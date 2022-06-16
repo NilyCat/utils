@@ -2,7 +2,7 @@ import { AnyArray, AnyMap } from './interface'
 import { objectPath } from './object-path'
 import { hasOwnProp, isArray, isNil, isObject } from './validate'
 
-export function deepClone<T extends unknown>(target: T): T {
+export function deepClone<T extends Object>(target: T): T {
   if (isNil(target)) {
     return target
   }
@@ -15,7 +15,7 @@ export function deepClone<T extends unknown>(target: T): T {
       to[i] = target[i] === target ? to : deepClone(target![i])
     }
 
-    return to as T
+    return to as unknown as T
   }
 
   if (isObject(target)) {
@@ -24,11 +24,11 @@ export function deepClone<T extends unknown>(target: T): T {
     for (const key in target) {
       if (hasOwnProp(target, key)) {
         // Prevent the infinite loop caused by a.b = a
-        to[key] = target[key] === target ? to : deepClone(target![key])
+        to[key] = (target[key] as unknown as T) === target ? to : deepClone(target![key])
       }
     }
 
-    return to as T
+    return to as unknown as T
   }
 
   return target
@@ -38,14 +38,11 @@ export function extend<T extends AnyMap>(target: T, ...sourceList: T[]): T {
   return Object.assign(target, ...sourceList)
 }
 
-export function merge<T extends unknown>(obj: T, defaults: T): T {
+export function merge<T>(obj: T, defaults: T): T {
   return deepExtend(defaults, obj)
 }
 
-export function deepExtend<T extends unknown>(
-  target: T,
-  ...sourceList: Array<T>
-): T {
+export function deepExtend<T>(target: T, ...sourceList: Array<T>): T {
   if (!isObject(target) && !isArray(target)) {
     return target
   }
@@ -56,7 +53,7 @@ export function deepExtend<T extends unknown>(
       const src = (target as any)[key]
       const copy = source[key]
 
-      if (isNil(copy) || target === copy || !hasOwnProp(source, <string>key)) {
+      if (isNil(copy) || target === (copy as unknown as T) || !hasOwnProp(source, <string>key)) {
         continue
       }
 
@@ -119,7 +116,7 @@ export function pick<T extends AnyMap>(
         continue
       }
     } else if (options.deepClone && (isObject(value) || isArray(value))) {
-      value = deepClone(value)
+      value = deepClone(value as unknown as Object)
     }
 
     objectPath.set(to, alias || key, value)
@@ -159,7 +156,7 @@ export function copy<T extends AnyMap>(
         continue
       }
     } else if (options.deepClone && (isObject(value) || isArray(value))) {
-      value = deepClone(value)
+      value = deepClone(value as unknown as Object)
     }
 
     objectPath.set(to, toKey, value)

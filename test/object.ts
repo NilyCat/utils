@@ -49,11 +49,11 @@ describe('object', () => {
   })
 
   test('cant clone null', () => {
-    expect(deepClone(null)).toBe(null)
+    expect(deepClone(null as unknown as Object)).toBe(null)
   })
 
   test('cant clone undefined', () => {
-    expect(deepClone(undefined)).toBe(undefined)
+    expect(deepClone(undefined as unknown as Object)).toBe(undefined)
   })
 
   test('deep clone', () => {
