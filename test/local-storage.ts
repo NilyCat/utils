@@ -31,6 +31,16 @@ describe('localStorage', () => {
     expect(localStorage.getItem('key5')).toStrictEqual([1])
   })
 
+  test('get keys', () => {
+    expect(localStorage.keys()).toStrictEqual(['key1', 'key2', 'key3', 'key4', 'key5'])
+  })
+
+  test('set with undefiend value', () => {
+    localStorage.setItem('key6', undefined)
+
+    expect(localStorage.getItem('key6')).toBe(undefined)
+  })
+
   test('clear keys', () => {
     localStorage.clear()
     expect(localStorage.length()).toBe(0)
