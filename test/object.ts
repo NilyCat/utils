@@ -1,5 +1,12 @@
 import { AnyMap } from '../src/interface'
-import { copy, deepClone, deepExtend, extend, pick } from '../src/object'
+import {
+  copy,
+  deepClone,
+  deepExtend,
+  exclude,
+  extend,
+  pick
+} from '../src/object'
 import { hasOwnProp } from '../src/validate'
 
 const obj = {
@@ -180,5 +187,25 @@ describe('object', () => {
 
   test('copy non-object', () => {
     expect(copy([] as any, {}, ['a'])).toStrictEqual(undefined)
+  })
+
+  test('exclude object', () => {
+    const t = exclude(obj, ['a', 'b', 'd'])
+    expect(t.c).toStrictEqual(obj.c)
+  })
+
+  test('exclude nil object', () => {
+    expect(
+      exclude({ x: null, y: 1 }, ['x'], {
+        ignoreNil: true
+      })
+    ).toStrictEqual({ y: 1 })
+  })
+
+  test('exclude deep clone object', () => {
+    const to = exclude(obj, ['a', 'b', 'd'], {
+      deepClone: true
+    })
+    expect(to.c).toStrictEqual(obj.c)
   })
 })

@@ -125,6 +125,38 @@ export function pick<T extends AnyMap>(
   return to
 }
 
+export function exclude<T extends AnyMap>(
+  target: T,
+  excludes: Array<string | string[]>,
+  options?: PickOptions
+): T {
+  options = merge(options || {}, DEFAULT_PICK_OPTIONS)!
+  const to = {} as T
+
+  if (!isObject(target)) {
+    return to
+  }
+
+  const fields = Object.keys(target).filter(key => !excludes.includes(key))
+
+  for (const field of fields) {
+    const key = String(field)
+    let value = target[key]
+
+    if (isNil(value)) {
+      if (options.ignoreNil) {
+        continue
+      }
+    } else if (options.deepClone && (isObject(value) || isArray(value))) {
+      value = deepClone(value as unknown as Object)
+    }
+
+    ;(to as unknown as AnyMap)[key] = value
+  }
+
+  return to
+}
+
 export function copy<T extends AnyMap>(
   target: T,
   to: T,
