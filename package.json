@@ -1,9 +1,9 @@
 {
   "name": "@nily/utils",
-  "description": "A nodejs basic development library",
-  "version": "0.2.1",
+  "description": "A basic development library",
+  "version": "0.3.0",
   "homepage": "https://github.com/NilyCat/utils",
-  "author": "mufeng.me@gmail.com",
+  "author": "hWwXx (xuan.zjww@gmail.com)",
   "repository": {
     "type": "git",
     "url": "git@github.com:NilyCat/utils.git"
