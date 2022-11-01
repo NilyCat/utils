@@ -192,6 +192,7 @@ describe('object', () => {
   test('exclude object', () => {
     const t = exclude(obj, ['a', 'b', 'd'])
     expect(t.c).toStrictEqual(obj.c)
+    expect(exclude(undefined as any, ['a', 'b', 'd'])).toStrictEqual({})
   })
 
   test('exclude nil object', () => {
@@ -200,6 +201,14 @@ describe('object', () => {
         ignoreNil: true
       })
     ).toStrictEqual({ y: 1 })
+  })
+
+  test('dont exclude nil object', () => {
+    expect(
+      exclude({ x: null, y: 1 }, ['y'], {
+        ignoreNil: false
+      })
+    ).toStrictEqual({ x: null })
   })
 
   test('exclude deep clone object', () => {

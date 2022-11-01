@@ -29,6 +29,14 @@ describe('color', () => {
     expect(Color.rgba(255, 255, 255, 0.5).hex()).toBe('#ffffff80')
   })
 
+  test('rgba(500, 255, 255, 0.5) to hex', () => {
+    expect(Color.rgba(500, 255, 255, 0.5).hex()).toBe('#ffffff80')
+  })
+
+  test('rgba(-100, 0, 0, -0.5) to hex', () => {
+    expect(Color.rgba(-100, 0, 0, -0.5).hex()).toBe('#0000000')
+  })
+
   test('rgb(17, 17, 123) to hex', () => {
     expect(Color('rgb(17, 17, 123)').hex()).toStrictEqual('#11117b')
   })

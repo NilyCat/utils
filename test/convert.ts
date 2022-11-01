@@ -2,6 +2,7 @@ import { conv } from '../src/conv'
 
 describe('convert', () => {
   test('bool', () => {
+    expect(conv.bool(null)).toBe(false)
     expect(conv.bool(null, true)).toBe(true)
     expect(conv.bool(1)).toBe(true)
     expect(conv.bool('1')).toBe(true)

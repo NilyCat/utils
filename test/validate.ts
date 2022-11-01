@@ -10,6 +10,8 @@ import {
   isInt,
   isMap,
   isNil,
+  isNotEqual,
+  isNotNil,
   isPlainObject,
   isPromise,
   isRegExp,
@@ -77,22 +79,35 @@ describe('validate', () => {
 
   test('null is nil', () => {
     expect(isNil(null)).toBe(true)
+    expect(isNotNil(null)).toBe(false)
   })
 
   test('undefined is nil', () => {
     expect(isNil(undefined)).toBe(true)
+    expect(isNotNil(undefined)).toBe(false)
   })
 
   test('false is not nil', () => {
     expect(isNil(false)).toBe(false)
+    expect(isNotNil(false)).toBe(true)
   })
 
   test('abc is equal abc', () => {
     expect(isEqual('abc', 'abc')).toBe(true)
+    expect(isNotEqual('abc', 'abc')).toBe(false)
   })
 
   test("10 is equal '10'", () => {
     expect(isEqual(10, '10')).toBe(true)
+    expect(isNotEqual(10, '10')).toBe(false)
+  })
+
+  test('abc is not equal gf', () => {
+    expect(isNotEqual('abc', 'gf')).toBe(true)
+  })
+
+  test("10 is not equal '5'", () => {
+    expect(isNotEqual(10, '5')).toBe(true)
   })
 
   test('true is bool', () => {
