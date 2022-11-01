@@ -92,6 +92,10 @@ export function isNil(value: any): boolean {
   return isNull(value) || isUndefined(value)
 }
 
+export function isNotNil(value: any): boolean {
+  return !isNil(value)
+}
+
 export function isPlainObject(value: any): boolean {
   if (!isObject(value)) return false
 
@@ -150,6 +154,10 @@ export function isValid(value: any): boolean {
 
 export function isEqual(value: any, arg2: any): boolean {
   return String(value) === String(arg2)
+}
+
+export function isNotEqual(value: any, arg2: any): boolean {
+  return !isEqual(value, arg2)
 }
 
 export function isTrue(value: any): boolean {
