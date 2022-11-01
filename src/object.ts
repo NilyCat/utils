@@ -24,7 +24,10 @@ export function deepClone<T extends Object>(target: T): T {
     for (const key in target) {
       if (hasOwnProp(target, key)) {
         // Prevent the infinite loop caused by a.b = a
-        to[key] = (target[key] as unknown as T) === target ? to : deepClone(target![key])
+        to[key] =
+          (target[key] as unknown as T) === target
+            ? to
+            : deepClone(target![key])
       }
     }
 
@@ -53,7 +56,11 @@ export function deepExtend<T>(target: T, ...sourceList: Array<T>): T {
       const src = (target as any)[key]
       const copy = source[key]
 
-      if (isNil(copy) || target === (copy as unknown as T) || !hasOwnProp(source, <string>key)) {
+      if (
+        isNil(copy) ||
+        target === (copy as unknown as T) ||
+        !hasOwnProp(source, <string>key)
+      ) {
         continue
       }
 

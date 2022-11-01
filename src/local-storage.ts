@@ -2,7 +2,10 @@ import { type } from './type'
 import { isValid, isNil } from './validate'
 
 function setItem<T = string>(key: string, value: T) {
-  if (isNil(value) || (type(value) === 'number' && isNaN(value as unknown as number))) {
+  if (
+    isNil(value) ||
+    (type(value) === 'number' && isNaN(value as unknown as number))
+  ) {
     removeItem(key)
   } else {
     window.localStorage.setItem(key, JSON.stringify(value))
