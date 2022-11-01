@@ -54,7 +54,7 @@ function objectKeys<T = AnyMap>(value: T): StringArray {
   if (isArray(value)) {
     return Array.from({ length: value.length }).map((_, i) => String(i))
   }
-  return Object.keys(value)
+  return Object.keys(value as Object)
 }
 
 function propPath(root: string, path: string) {
@@ -97,7 +97,7 @@ function dirtyCompare<T = AnyMap>(
           patches.push({
             op: 'replace',
             path: propPath(path, <string>key),
-            value: deepClone(newVal)
+            value: deepClone(newVal as Object)
           })
         }
       }
@@ -120,7 +120,7 @@ function dirtyCompare<T = AnyMap>(
       patches.push({
         op: 'add',
         path: propPath(path, <string>key),
-        value: deepClone(objectB[key])
+        value: deepClone(objectB[key] as Object)
       })
     }
   }
