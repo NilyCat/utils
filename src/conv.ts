@@ -1,4 +1,11 @@
-import { isBoolean, isEmpty, isNumber, isString, isTrue } from './validate'
+import {
+  isBoolean,
+  isEmpty,
+  isNumber,
+  isString,
+  isTrue,
+  isValid
+} from './validate'
 
 function toBool(value: unknown, defaults?: boolean): boolean {
   if (isEmpty(value)) {
@@ -53,16 +60,14 @@ function toFloat(
 }
 
 function toJson<T extends object>(text: unknown, defaults?: T): T | undefined {
-  if (isEmpty(text) || !isString(text)) {
-    return
-  }
-
   let value: T | undefined
 
-  try {
-    value = JSON.parse(text as string)
-  } catch (e) {
-    // eslint-disable-line
+  if (isValid(text) && isString(text)) {
+    try {
+      value = JSON.parse(text as string)
+    } catch (e) {
+      // eslint-disable-line
+    }
   }
 
   if (defaults && !value) {
