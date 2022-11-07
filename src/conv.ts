@@ -53,18 +53,15 @@ function toFloat(
   return maxValue ? Math.min(maxValue, val) : val
 }
 
-function toJson(
-  text: string,
-  defaults?: AnyArray | AnyMap
-): AnyArray | AnyMap | undefined {
+function toJson<T extends object>(text: unknown, defaults?: T): T | undefined {
   if (isEmpty(text) || !isString(text)) {
     return
   }
 
-  let value: AnyArray | AnyMap | undefined
+  let value: T | undefined
 
   try {
-    value = JSON.parse(text)
+    value = JSON.parse(text as string)
   } catch (e) {
     // eslint-disable-line
   }
@@ -76,7 +73,7 @@ function toJson(
   return value
 }
 
-function toJsonString(value: AnyArray | AnyMap): string {
+function toJsonString<T extends object>(value: T): string {
   return JSON.stringify(value)
 }
 
