@@ -1,4 +1,3 @@
-import { AnyArray, AnyMap } from './interface'
 import { isBoolean, isEmpty, isNumber, isString, isTrue } from './validate'
 
 function toBool(value: unknown, defaults?: boolean): boolean {
