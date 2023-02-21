@@ -3,9 +3,9 @@
 ### Get object value
 
 ```
-import { objectPath } from '@hpnp/utils'
+import { objectPath } from '@nily/utils'
 // or
-import { objectPath } from '@hpnp/utils/object-path'
+import { objectPath } from '@nily/utils/object-path'
 
 const obj = {
     a: {
@@ -18,9 +18,9 @@ objectPath.get(obj, 'a.b') => 1
 ### Set object value
 
 ```
-import { objectPath } from '@hpnp/utils'
+import { objectPath } from '@nily/utils'
 // or
-import { objectPath } from '@hpnp/utils/object-path'
+import { objectPath } from '@nily/utils/object-path'
 
 const obj = {
     a: {

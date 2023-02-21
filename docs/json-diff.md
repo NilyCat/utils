@@ -3,9 +3,9 @@
 ### Compare two objects
 
 ```
-import { compare } from '@hpnp/utils'
+import { compare } from '@nily/utils'
 // or
-import { compare } from '@hpnp/utils/json-diff'
+import { compare } from '@nily/utils/json-diff'
 
 compare({ a: 1 }, { b: 1 }) => [
   {

@@ -3,9 +3,9 @@
 Generate random number or string.
 
 ```
-import { random } from '@hpnp/utils'
+import { random } from '@nily/utils'
 // or
-import { random } from '@hpnp/utils/random'
+import { random } from '@nily/utils/random'
 
 random.number(0, 10) // => 6
 random.hex(6)        // => 8265ef

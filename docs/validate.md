@@ -1,9 +1,9 @@
 ## Validate
 
 ```
-import { isValid } from '@hpnp/utils'
+import { isValid } from '@nily/utils'
 // or
-import { isValid } from '@hpnp/utils/validate'
+import { isValid } from '@nily/utils/validate'
 ```
 
 | Function                      | Description                                                                                 |

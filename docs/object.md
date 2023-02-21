@@ -3,9 +3,9 @@
 ### Deep clone a object
 
 ```
-import { deepClone } from '@hpnp/utils'
+import { deepClone } from '@nily/utils'
 // or
-import { deepClone } from '@hpnp/utils/object'
+import { deepClone } from '@nily/utils/object'
 
 const obj = {
   x: 1
@@ -20,9 +20,9 @@ cloned.x === obj.x // => true
 ### Pick some properties from a object
 
 ```
-import { pick } from '@hpnp/utils'
+import { pick } from '@nily/utils'
 // or
-import { pick } from '@hpnp/utils/object'
+import { pick } from '@nily/utils/object'
 
 const obj = {
   x: 1,
@@ -36,9 +36,9 @@ pick(obj, ['y', 'z']) // => { y: 2, z：3 }
 ### Exclude some properties from a object
 
 ```
-import { exclude } from '@hpnp/utils'
+import { exclude } from '@nily/utils'
 // or
-import { exclude } from '@hpnp/utils/object'
+import { exclude } from '@nily/utils/object'
 
 const obj = {
   x: 1,

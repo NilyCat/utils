@@ -3,9 +3,9 @@
 Get the type of argument. This function is the foundation of helper.
 
 ```
-import { type } from '@hpnp/utils'
+import { type } from '@nily/utils'
 // or
-import { type } from '@hpnp/utils/type'
+import { type } from '@nily/utils/type'
 
 type(1)       => number
 type('hello') => string
